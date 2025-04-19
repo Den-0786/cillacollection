@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilla's Collections | Home Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <!-- Logo -->
+                <a href="index.html" class="brand-logo">
+                    <span>Cilla's</span>Collections
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Main Navigation -->
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="/products/products.html">Products</a></li>
+                        <li><a href="/collections/collections.html">Collections</a></li>
+                        <li><a href="/about/about.html">About Us</a></li>
+                        <li><a href="/contacts/contact.html">Contact</a></li>
+                    </ul>
+
+                    <!-- Search and Actions -->
+                    <div class="nav-actions">
+                        <form class="search-form">
+                            <input type="search" placeholder="Search dresses, accessories..." aria-label="Search">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                        <div class="action-icons">
+                            <a href="#" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+                            <button class="cart-btn" aria-label="Shopping Cart">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span class="cart-count">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Category Navigation -->
+        <div class="category-nav">
+            <div class="container">
+                <div class="category-links">
+                    <a href="#" class="cat-link" data-key="Trending">Trending</a>
+                    <a href="#" class="cat-link" data-key="Outfit">Outfits</a>
+                    <a href="#" class="cat-link" data-key="Dresses">Dresses</a>
+                    <a href="#" class="cat-link" data-key="Shoes">Shoes</a>
+                    <a href="#" class="cat-link" data-key="Accessories">Accessories</a>
+                    <a href="#" class="cat-link" data-key="Beauty">Beauty</a>
+                    <a href="#" class="cat-link sale" data-key="Sale">Sales</a>
+                </div>
+            </div>
+            <div class="category-popup-backdrop">
+                <div id="category-popup" class="category-popup hidden">
+                    <div class="category-popup-card">
+                        <button class="close-popup">&times;</button>
+                        <div id="popup-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-carousel">
+            <!-- slide 1  Ladies -->
+            <div class="hero-slide active" data-category="ladies">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>Elevate Her Style</h1>
+                            <p class="subtitle">Discover premium fashion pieces handcrafted for the modern woman</p>
+                            <h3>FIND HER <span>STYLE</span></h3>
+                            <h3><span>STYLE</span> HER LOOK</h3>
+                            <div class="cta-buttons">
+                                <a href="/products/products.html" class="btn primary">Shop Ladies</a>
+                                <a href="/collections/collections.html" class="btn secondary">View Sale</a>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <img src="images/hero/ladies-main-removebg-preview.png" alt="Fashion model wearing our latest collection" class="main-image">
+                            <div class="shape-images">
+                                <img src="images/hero/diamon.jpeg" alt="Trending item 1" class="shape-img diamond">
+                                <img src="images/hero/hex.jpeg" alt="Trending item 2" class="shape-img hexagon">
+                                <img src="images/hero/pent.jpeg" alt="Trending item 3" class="shape-img pentagon">
+                                <img src="images/hero/triangle.jpeg" alt="Trending item 3" class="shape-img triangle">
+                                <img src="images/hero/star.jpeg" alt="Trending item 3" class="shape-img circle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- slide 2  Men -->
+            <div class="hero-slide active" data-category="men">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>Refine His Wardrobe</h1>
+                            <p class="subtitle">sophisticated menswear for every occasion</p>
+                            <h3>FIND HIS <span>STYLE</span></h3>
+                            <h3><span>STYLE</span> HIS LOOK</h3>
+                            <div class="cta-buttons">
+                                <a href="/products/products.html" class="btn primary">Shop Men</a>
+                                <a href="/products/products.html" class="btn secondary">View Sale</a>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <img src="images/hero/men-main-removebg-preview.png" alt="Fashion model wearing our latest collection" class="main-image">
+                            <div class="shape-images">
+                                <img src="images/hero/men-diamon.jpeg" alt="Trending item 1" class="shape-img diamond">
+                                <img src="images/hero/men-hex.jpeg" alt="Trending item 2" class="shape-img hexagon">
+                                <img src="images/hero/men-pent.jpeg" alt="Trending item 3" class="shape-img pentagon">
+                                <img src="images/hero/men-triangle.jpeg" alt="Trending item 3" class="shape-img triangle">
+                                <img src="images/hero/men-star.jpeg" alt="Trending item 3" class="shape-img circle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- slide 3  Kids -->
+            <div class="hero-slide active" data-category="kids">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>Playful Kids Fashion</h1>
+                            <p class="subtitle">Adorable styles for little ones</p>
+                            <h3>FIND THEIR <span>STYLE</span></h3>
+                            <h3><span>STYLE</span> THEIR LOOK</h3>
+                            <div class="cta-buttons">
+                                <a href="/products/products.html" class="btn primary">Shop Kids</a>
+                                <a href="/products/products.html" class="btn secondary">View Sale</a>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <img src="images/hero/kids-main-removebg-preview.png" alt="Fashion model wearing our latest collection" class="main-image">
+                            <div class="shape-images">
+                                <img src="images/hero/kids-diamon.jpeg" alt="Trending item 1" class="shape-img diamond">
+                                <img src="images/hero/kids-hex.jpeg" alt="Trending item 2" class="shape-img hexagon">
+                                <img src="images/hero/kids-pent.jpeg" alt="Trending item 3" class="shape-img pentagon">
+                                <img src="images/hero/kids-triangle.jpeg" alt="Trending item 3" class="shape-img square">
+                                <img src="images/hero/kids-star.jpeg" alt="Trending item 3" class="shape-img circle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
+        <!-- Product Showcase Sections -->
+    <main class="main-content">
+        <!-- Trending Now Section -->
+        <section class="product-showcase trending-section" id="trending">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Trending Now</h2>
+                    <a href="/products/products.html" class="view-all">View All</a>
+                </div>
+                
+                <div class="product-carousel">
+                    <div class="carousel">
+                        <div class="carousel-container" id="trending-carousel">
+                            <!-- Product items will be loaded dynamically via JS -->
+                        </div>
+                        <button class="carousel-btn prev" id="trendingPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next" id="trendingNextBtn"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-dots" id="trendingDots"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="brands-section">
+                <div class="container">
+                    <h2 class="section-title">Our Iconic Brands</h2>
+                    <div class="brand-carousel-container">
+                        <div class="brand-carousel">
+
+                        </div>
+                        <button class="brand-carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="brand-carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- New Arrivals Section -->
+        <section class="product-showcase new-arrivals" id="new-arrivals">
+            <div class="container">
+                <div class="section-header">
+                    <h2>New Arrivals</h2>
+                    <a href="/products/products.html" class="view-all">View Collection</a>
+                </div>
+                
+                <div class="product-carousel">
+                    <div class="carousel">
+                        <div class="carousel-container" id="new-arrivals-carousel">
+                            <!-- Product items will be loaded dynamically via JS -->
+                        </div>
+                        <button class="carousel-btn prev" id="newArrivalsPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next" id="newArrivalsNextBtn"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-dots" id="newArrivalsDots"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="features-container">
+                <!-- Card 1: Fast Delivery -->
+                <div class="feature-card" style="--card-accent: var(--accent);">
+                    <div class="icon-wrapper">
+                        <span class="material-symbols-outlined">local_shipping</span>
+                    </div>
+                    <div class="text-content1">
+                        <h3>Fast Delivery</h3>
+                        <p>Get your order delivered within 24-48 hours with our priority shipping.</p>
+                    </div>
+                </div>
+                <!-- Card 2: Premium Quality -->
+                <div class="feature-card" style="--card-accent: var(--accent-dark);">
+                    <div class="icon-wrapper">
+                        <span class="material-symbols-outlined">verified</span>
+                    </div>
+                    <div class="text-content1">
+                        <h3>Premium Quality</h3>
+                        <p>Handcrafted with luxury materials and meticulous attention to detail.</p>
+                    </div>
+                </div>
+                <!-- Card 3: Good Customer Care -->
+                <div class="feature-card" style="--card-accent: var(--medium-gray);">
+                    <div class="icon-wrapper">
+                        <span class="material-symbols-outlined">support_agent</span>
+                    </div>
+                    <div class="text-content1">
+                        <h3>Good Customer Care</h3>
+                        <p>24/7 support ready to assist you with any inquiries or issues.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="banner">
+                <div class="sale-circle"><span>sale</span></div>
+                <img src="images/discount-removebg-preview.png" alt="Fashion Model" class="banner-image">
+                <div class="text-content">
+                    <div class="the">THE</div>
+                    <div class="fashion-world">FASHION<br>WORLD</div>
+                    
+                </div>
+                <div class="discount"><span>30%<br>OFF</span></div>
+            </div>
+        </section>
+        <!-- Featured Looks Section -->
+        <section class="featured-looks">
+            <div class="container">
+                <h2>Featured Looks</h2>
+                <div class="lookbook">
+                    <div class="lookbook-item">
+                        <img src="images/summer.jpeg" alt="Summer collection look">
+                        <div class="look-info">
+                            <h3>Summer Essentials</h3>
+                            <a href="#" class="btn outline">Shop the Look</a>
+                        </div>
+                    </div>
+                    <div class="lookbook-item">
+                        <img src="images/evening.jpeg" alt="Evening wear look">
+                        <div class="look-info">
+                            <h3>Evening Elegance</h3>
+                            <a href="#" class="btn outline">Shop the Look</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter Section -->
+        <section>
+            <div class="newsletter">
+                <div class="container">
+                    <div class="newsletter-card">
+                        <div class="newsletter-column">
+                            <h2>Newsletter</h2>
+                            <p>Subscribe to receive exclusive offers and updates</p>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit" class="btn primary">Subscribe</button>
+                            </form>
+                        </div>
+                        
+                        <div class="divider"></div>
+                        
+                        <div class="app-column">
+                            <h3>Download App</h3>
+                            <p>Get our mobile app for exclusive features</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <button type="button" class="btn btn-light btn-lg px-4 me-md-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="16" height="16" fill="currentColor" class="bi bi-apple mb-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
+                                    <path
+                                        d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
+                                    </svg> Download</button>
+                                <button type="button" class="btn btn-outline-light btn-lg px-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="16" height="16" fill="currentColor" class="bi bi-google-play mb-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295ZM1 13.396V2.603L6.846 8 1 13.396ZM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27Z" />
+                                    </svg> Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3>Your Shopping Cart (<span id="cart-modal-count">0</span>)</h3>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be inserted here -->
+            </div>
+            <div class="cart-total">
+                <p>Total: <span id="cart-total-price">$0.00</span></p>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+    <div id="cart-notification" class="cart-notification">
+        <!-- Notification content will be inserted here via JS -->
+        <i class="fas fa-check-circle"></i>
+        <span class="notification-message"></span>
+    </div>
+    <div class="overlay"></div>
+
+    <!--Confirmation Btn -->
+    <div id="confirmationModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <span class="material-symbols-outlined modal-icon">warning</span>
+            <h3>Remove Item</h3>
+            <p id="confirmationMessage"></p>
+            <div class="modal-actions">
+                <button id="confirmNo" class="btn-cancel">
+                    <span class="material-symbols-outlined">close</span> Cancel
+                </button>
+                <button id="confirmYes" class="btn-confirm">
+                    <span class="material-symbols-outlined">check</span> Remove
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <!-- Top Section with Contact Info and Social Icons -->
+            <div class="footer-top">
+                <div class="footer-contact">
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <span>cillascollections25@gmail.com</span>
+                    </div>
+                    <div class="contact-phone">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+233547025738</span>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <span>Follow Us:</span>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Divider Line -->
+            <div class="footer-divider"></div>
+    
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <span>Cilla's</span>Collections
+                    </a>
+                    <p>Premium fashion for the modern, sophisticated woman.</p>
+                </div>
+    
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#" class="footer-link" data-key="New Arrivals">New Arrivals</a></li>
+                            <li><a href="#" class="footer-link" data-key="Best Sellers">Best Sellers</a></li>
+                            <li><a href="#" class="footer-link" data-key="All Categories">All Categories</a></li>
+                            <li><a href="#" class="footer-link" data-key="Gift Cards">Gift Cards</a></li>
+                            <li><a href="#" class="footer-link" data-key="Size Guide">Size Guide</a></li>
+                        </ul>
+                        <div class="footer-popup hidden">
+                            <button class="close-popup">&times;</button>
+                            <div class="popup-content"></div>
+                        </div>
+                    </div>
+                
+                    <div class="links-column">
+                        <h4>Offer</h4>
+                        <ul>
+                            <li><a href="#" class="footer-link" data-key="Current Promotions">Current Promotions</a></li>
+                            <li><a href="#" class="footer-link" data-key="Bundle Deals">Bundle Deals</a></li>
+                            <li><a href="#" class="footer-link" data-key="Clearance Sale">Clearance Sale</a></li>
+                            <li><a href="#" class="footer-link" data-key="Holiday Specials">Holiday Specials</a></li>
+                            <li><a href="#" class="footer-link" data-key="Student Discount">Student Discount</a></li>
+                        </ul>
+                        <div class="footer-popup hidden">
+                            <button class="close-popup">&times;</button>
+                            <div class="popup-content"></div>
+                        </div>
+                    </div>
+                
+                    <div class="links-column">
+                        <h4>Information</h4>
+                        <ul>
+                            <li><a href="#" class="footer-link" data-key="Shipping Info">Shipping Info</a></li>
+                            <li><a href="#" class="footer-link" data-key="Returns & Exchanges">Returns & Exchanges</a></li>
+                            <li><a href="#" class="footer-link" data-key="Track Your Order">Track Your Order</a></li>
+                            <li><a href="#" class="footer-link" data-key="Payment Methods">Payment Methods</a></li>
+                            <li><a href="#" class="footer-link" data-key="FAQs">FAQs</a></li>
+                        </ul>
+                        <div class="footer-popup hidden">
+                            <button class="close-popup">&times;</button>
+                            <div class="popup-content"></div>
+                        </div>
+                    </div>
+                    <div class="links-column">
+                        <h4>About</h4>
+                        <ul>
+                            <li><a href="#" class="footer-link" data-key="Our Story">Our Story</a></li>
+                            <li><a href="#" class="footer-link" data-key="Careers">Careers</a></li>
+                            <li><a href="#" class="footer-link" data-key="Sustainability">Sustainability</a></li>
+                            <li><a href="/contacts/contact.html">Contact Us</a></li>
+                        </ul>
+                        <div class="footer-popup hidden">
+                            <button class="close-popup">&times;</button>
+                            <div class="popup-content"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-payments">
+                    <h4>We Accept:</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                        <i class="fab fa-cc-discover"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cilla's Collections. All rights reserved.</p>
+                <div class="links-column legal-links">
+                    <h4>Legal Links</h4>
+                    <div class="legal-links-container">
+                        <a href="#" class="footer-link" data-key="Privacy Policy">Privacy Policy</a>
+                        <a href="#" class="footer-link" data-key="Terms of Service">Terms of Service</a>
+                        <a href="#" class="footer-link" data-key="Shipping Policy">Shipping Policy</a>
+                        <a href="#" class="footer-link" data-key="Returns Policy">Returns Policy</a>
+                    </div>
+                    <div class="footer-popup hidden">
+                        <button class="close-popup">&times;</button>
+                        <div class="popup-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-popup-backdrop">
+        <div id="footer-popup" class="footer-popup hidden">
+            <div class="footer-popup-card">
+                <button class="close-popup">&times;</button>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

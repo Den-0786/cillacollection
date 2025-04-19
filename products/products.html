@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilla's Products</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="/products/products.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <!-- Logo -->
+                <a href="index.html" class="brand-logo">
+                    <span>Cilla's</span>Collections
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Main Navigation -->
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="/index.html" >Home</a></li>
+                        <li><a href="/products/products.html" class="active">Products</a></li>
+                        <li><a href="/collections/collections.html">Collections</a></li>
+                        <li><a href="/about/about.html">About Us</a></li>
+                        <li><a href="/contacts/contact.html">Contact</a></li>
+                    </ul>
+
+                    <!-- Search and Actions -->
+                    <div class="nav-actions">
+                        <form class="search-form">
+                            <input type="search" placeholder="Search dresses, accessories..." aria-label="Search">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                        <div class="action-icons">
+                            <a href="#" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+                            <a href="#" class="cart-icon" aria-label="Shopping bag">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span class="cart-count">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>✨ Discover Your Next Favorite Look</h2>
+                    <p>Step into a world of elegance and effortless style.  
+                    From chic everyday essentials to standout statement pieces,  
+                    our latest collection is curated just for <strong>you</strong>.  
+                    Browse, fall in love, and make it yours.</p>
+                    <a href="/products/products.html" class="shop-now-btn">Shop Now</a>
+                </div>
+            </div>
+        </section>
+        
+    </section>
+    <main class="container">
+        <div class="page-header">
+            <h1>Our Products</h1>
+            <p>Explore our handpicked selection of timeless styles and trend-forward pieces — designed<br> 
+                to elevate your wardrobe and celebrate your individuality.</p>
+        </div>
+        
+        <div class="category-filter">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">
+                    <div class="filter-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <span>All</span>
+                </button>
+                <button class="filter-btn" data-category="men">
+                    <div class="filter-icon">
+                        <i class="fas fa-male"></i>
+                    </div>
+                    <span>Men</span>
+                </button>
+                <button class="filter-btn" data-category="women">
+                    <div class="filter-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <span>Women</span>
+                </button>
+                <button class="filter-btn" data-category="kids_boys">
+                    <div class="filter-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <span>Kids-Boys</span>
+                </button>
+                <button class="filter-btn" data-category="kids_girls">
+                    <div class="filter-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <span>Kids-Girls</span>
+                </button>
+                <button class="filter-btn" data-category="accessories">
+                    <div class="filter-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <span>Accessories</span>
+                </button>
+                <button class="filter-btn" data-category="unisex">
+                    <div class="filter-icon">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <span>Unisex</span>
+                </button>
+            </div>
+            <div class="subcategory-filters">
+                <div class="subcategories-container"></div>
+                <!-- Subcategories will be inserted here by JavaScript -->
+            </div>
+        </div>
+        <div class="subcategory-sidebar">
+            <div class="sidebar-header">
+                <h3>Categories</h3>
+                <button class="close-sidebar">&times;</button>
+            </div>
+            <div class="subcategories-list"></div>
+        </div>
+        <div class="sidebar-overlay"></div>
+        <div class="product-count">
+            Showing <span id="product-count">0</span> products
+        </div>
+        
+        <div class="products-grid" id="products-container">
+            <!-- Product items will be inserted here by JavaScript -->
+        </div>
+
+        <div class="cart-notification" id="cart-notification">
+            <i class="fas fa-check-circle"></i> Item added to cart!
+        </div>
+    </main>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3>Your Shopping Cart (<span id="cart-modal-count">0</span>)</h3>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be inserted here -->
+            </div>
+            <div class="cart-total">
+                <p>Total: <span id="cart-total-price">$0.00</span></p>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+    <!--Confirmation Btn -->
+    <div id="confirmationModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <span class="material-symbols-outlined modal-icon">warning</span>
+            <h3>Remove Item</h3>
+            <p id="confirmationMessage"></p>
+            <div class="modal-actions">
+                <button id="confirmNo" class="btn-cancel">
+                    <span class="material-symbols-outlined">close</span> Cancel
+                </button>
+                <button id="confirmYes" class="btn-confirm">
+                    <span class="material-symbols-outlined">check</span> Remove
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="/products/products.js"></script>
+</body>
+</html><!DOCTYPE html>

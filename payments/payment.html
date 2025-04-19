@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="/payments/payment.css">
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-header">
+            <h2>Complete Your Payment By:</h2>
+            <p>Selecting your preferred payment method</p>
+        </div>
+        <div class="order-summary">
+            <h3>Your Order</h3>
+            <div id="order-items-container">
+                <!-- Cart items will appear here -->
+            </div>
+            <div class="order-total">
+                Total: <span id="order-total-amount">GHS 0.00</span>
+            </div>
+        </div>
+        <div class="payment-methods">
+            <!-- MObile Money Section-->
+            <div class="payment-section">
+                <h3><i class="fas fa-mobile-alt"></i>Mobile Money</h3>
+                <div class="payment-options">
+                    <div class="payment-option" data-method="mtn" data-type="mobile">
+                        <img src="/payments/images/mtn.jpg" alt="MTN Mobile Money">
+                        <span>MTN Mobile Money</span>
+                    </div>
+                    <div class="payment-option" data-method="telecel" data-type="mobile">
+                        <img src="/payments/images/telecel.jpg" alt="Telecel Cash">
+                        <span>Telecel Cash</span>
+                    </div>
+                    <div class="payment-option" data-method="airteltigo" data-type="mobile">
+                        <img src="/payments/images/airteltigo.jpg" alt="AirtelTigo Money">
+                        <span>AirtelTigo Money</span>
+                    </div>
+                </div>
+                <div class="payment-details" id="mobile-details">
+                    <div class="form-group">
+                        <label for="customer-number">Your Mobile Number</label>
+                        <input type="tel" id="customer-number" placeholder="e.g. 0xxxxxxxxx">
+                        <div class="validation-error" id="customer-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="merchant-number">Merchant Number</label>
+                        <input type="tel" id="merchant-number" placeholder="0xxxxxxxxx">
+                        <div class="validation-error" id="merchant-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile-network">Network</label>
+                        <input type="text" id="mobile-network" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount (GHS)</label>
+                        <input type="number" id="mobile-amount" placeholder="100.00">
+                        <div class="validation-error" id="amount-error"></div>
+                    </div>
+                </div>
+            </div>
+                    <!-- Card Payment Section-->
+            <div class="payment-section">
+                <h3><i class="far fa-credit-card"></i>Credit/Debit Card</h3>
+                <div class="payment-options">
+                    <div class="payment-option" data-method="visa" data-type="card">
+                        <i class="fab fa-cc-visa"></i>
+                        <span>Visa</span>
+                    </div>
+                    <div class="payment-option" data-method="mastercard" data-type="card">
+                        <i class="fab fa-cc-mastercard"></i>
+                        <span>Mastercard</span>
+                    </div>
+                    <div class="payment-option" data-method="amex" data-type="card">
+                        <i class="fab fa-cc-amex"></i>
+                        <span>American Express</span>
+                    </div>
+                </div>
+                <div class="payment-details" id="card-details">
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                        <div class="validation-error" id="card-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-name">Name On Card</label>
+                        <input type="text" id="card-name" placeholder="Dennis Kekeli">
+                        <div class="validation-error" id="name-error"></div>
+                    </div>
+                    <div class="form-group" style="display: flex; gap: 1rem;">
+                        <div style="flex: 1;">
+                            <label for="card-expiry">Expired Date</label>
+                            <input type="text" id="card-expiry" placeholder="MM/YY">
+                            <div class="validation-error" id="expiry-error"></div>
+                        </div>
+                        <div style="flex: 1;">
+                            <label for="card-cvv">CVV</label>
+                            <input type="text" id="card-cvv" placeholder="xxx">
+                            <div class="validation-error" id="cvv-error"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-amount">Amount</label>
+                        <input type="number" id="card-amount" placeholder="100.00" min="1">
+                        <div class="validation-error" id="card-amount-error"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="submit-btn" id="continue-btn">Continue to Payment</button>
+        </div>
+        <div class="confirmation-modal" id="confirmation-modal">
+            <div class="confirmation-content">
+                <h3>Confirm Payment Details</h3>
+                <div class="confirmation-details" id="confirmation-details">
+                    <!-- Will be added dynamically by js-->
+                </div>
+                <div class="confirmation-buttons">
+                    <button class="confirm-btn" id="confirm-payment">Confirm Payment</button>
+                    <button class="cancel-btn" id="cancel-payment">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div class="other-payment-options">
+            <h4>We Also Accept</h4>
+            <div class="payment-methods-options">
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-apple-pay"></i>
+                <i class="fab fa-cc-discover"></i>
+            </div>
+        </div>
+    </div>
+    <script src="/payments/payment.js"></script>
+</body>
+</html>
