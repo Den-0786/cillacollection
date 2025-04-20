@@ -1,7 +1,7 @@
 document.querySelectorAll('.footer-link').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-        const key = link.dataset.key;
+        const {key} = link.dataset;
 
         if (key === "Contact Us"){
             window.location.href = "/contact/contact.html";
@@ -131,26 +131,56 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', function() {
     // Dynamic product generation with verified paths
     const products = [
-        ...generateProducts("Formal Suit", "special-collections", 8, 99.99, 399.99),
-        ...generateProducts("Evening Dress", "special-collections", 6, 129.99, 599.99),
-        ...generateProducts("Casual Shirt", "newArrival", 10, 24.99, 59.99, true),
-        ...generateProducts("Designer Jeans", "newArrival", 8, 49.99, 129.99, true),
-        ...generateProducts("Winter Coat", "onSales", 5, 59.99, 199.99, false, true)
+        // Special Collections (10 each)
+            ...generateProducts("Formal Suit", "special-collections", 10, 99.99, 399.99),
+            ...generateProducts("Evening Dress", "special-collections", 10, 129.99, 599.99),
+            ...generateProducts("Silk Tie Set", "special-collections", 10, 39.99, 149.99),
+            ...generateProducts("Velvet Blazer", "special-collections", 10, 119.99, 449.99),
+            ...generateProducts("Bridal Gown", "special-collections", 10, 199.99, 899.99),
+
+            // New Arrivals (5 each)
+            ...generateProducts("Casual Shirt", "new-arrival", 5, 24.99, 59.99, true),
+            ...generateProducts("Designer Jeans", "new-arrival", 5, 49.99, 129.99, true),
+            ...generateProducts("Oversized Hoodie", "new-arrival", 5, 34.99, 79.99, true),
+            ...generateProducts("Linen Pants", "new-arrival", 5, 29.99, 69.99, true),
+            ...generateProducts("Cropped Jacket", "new-arrival", 5, 44.99, 109.99, true),
+
+            // On Sale (5 each)
+            ...generateProducts("Winter Coat", "on-sale", 5, 59.99, 199.99, false, true),
+            ...generateProducts("Cashmere Sweater", "on-sale", 5, 49.99, 179.99, false, true),
+            ...generateProducts("Leather Gloves", "on-sale", 5, 19.99, 49.99, false, true),
+            ...generateProducts("Wool Scarf", "on-sale", 5, 14.99, 39.99, false, true),
+            ...generateProducts("Denim Jacket", "on-sale", 5, 39.99, 129.99, false, true),
+
+            // Accessories (5 each)
+            ...generateProducts("Premium Watch", "accessories", 5, 79.99, 299.99),
+            ...generateProducts("Leather Belt", "accessories", 5, 29.99, 89.99),
+            ...generateProducts("Designer Sunglasses", "accessories", 5, 49.99, 199.99),
+            ...generateProducts("Silk Pocket Square", "accessories", 5, 9.99, 29.99),
+            ...generateProducts("Statement Necklace", "accessories", 5, 19.99, 79.99),
+
+            // Unisex (5 each)
+            ...generateProducts("Canvas Sneakers", "unisex", 5, 34.99, 89.99, true),
+            ...generateProducts("Oversized T-shirt", "unisex", 5, 14.99, 39.99, true),
+            ...generateProducts("Utility Joggers", "unisex", 5, 29.99, 69.99, true),
+            ...generateProducts("Trench Coat", "unisex", 5, 69.99, 249.99, true),
+            ...generateProducts("Beanie Hat", "unisex", 5, 9.99, 24.99, true)
     ];
 
     function generateProducts(baseName, category, count, minPrice, maxPrice, isNew = false, isOnSale = false) {
         const categoryFolders = {
             "special-collections": "special-collections",
             "accessories": "accessories",
-            "newArrival": "newArrival",
-            "onSales": "onSales",
-            "others": "others"
+            "new-arrival": "new-arrival",
+            "on-sale": "on-sale",
+            "unisex": "unisex"
         };
         
         const subcategories = ["male", "female", "kids-male", "kids-female", "unisex"];
         const sizes = ["xs", "s", "m", "l", "xl", "xxl", "one-size"];
         const types = ["shirt", "suit", "dress", "kaftan", "skirt", "jeans", "shoes", "slippers"];
         const colors = ["black", "blue", "red", "white"];
+        const extensions = ['jpg','jpeg', 'png', 'webp'];
     
         const generatedProducts = [];
         
@@ -161,8 +191,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const color = colors[Math.floor(Math.random() * colors.length)];
             const price = (Math.random() * (maxPrice - minPrice) + minPrice).toFixed(2);
             const productId = `${category}-${subcategory}-${type}-${color}-${i}`;
-    
-            const imagePath = `./collections/images/${categoryFolders[category]}/${subcategory}/${type}/${type}-${color}.jpeg`;
+            
+
+            const imagePath = `/collections/images/placeholders/${
+                category === 'unisex' ? 'unisex-placeholder.jpeg' :
+                category === 'on-sale' ? 'sale-placeholder.jpeg' :
+                category === 'accessories' ? 'accessories-placeholder.jpeg' :
+                category === 'special-collections' ? 'premium-placeholder.jpeg' : 
+                category === 'new-arrival' ? 'new-arrival-placeholder.jpg' :
+                'default-placeholder.jpg'
+            }`;
+            // const folder = categoryFolders[category] || "unisex";
+            // const imagePath = `/collections/images/${folder}/${subcategory}/${type}/${type}-${color}`;
+
+            // const possiblePaths = extensions.map(ext => `${imagePath}.${ext}`);
             
             generatedProducts.push({
                 id: productId,
@@ -171,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     subcategory === 'kids-male' ? "Boys" :
                     subcategory === 'kids-female' ? "Girls" : "Unisex"} ${baseName} ${color}`,
                 price: parseFloat(price),
-                image: imagePath,
+                image: imagePath, // will use possiblePaths when i load all the images
                 category: category,
                 subcategory: subcategory,
                 type: type,
@@ -181,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 isOnSale: isOnSale,
                 popularity: Math.floor(Math.random() * 10) + 1
             });
+            console.log(`Generated image path for ${productId}: ${imagePath}`);
         }
         return generatedProducts;
     }
@@ -281,10 +324,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const productCard = document.createElement('div');
             productCard.className = 'product-card';
+
+
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'product-image';
+            
+            const img = document.createElement('img');
+            img.alt = displayText;
+
+            const tryImage = (index = 0) => {
+                if (index < product.image.length) {
+                    img.onerror = () => tryImage(index + 1);
+                    img.src = product.image[index];
+                } else{
+                    img.src = '/collections/images/placeholders/default-placeholder.jpg';
+                    img.onerror = null;
+                }
+            };
+
+            tryImage(0);
+
+            if (product.isOnSale) {
+                imageContainer.innerHTML = `<span class="sale-badge">SALE</span>`;
+            }
+
+            if (product.lyNew) {
+                imageContainer.innerHTML = `<span class="new-badge">NEW</span>`;
+            }
+            imageContainer.appendChild(img);
+
             productCard.innerHTML = `
                 <div class="product-image">
                     <img src="${product.image}" alt="${displayText}" 
-                        onerror="this.onerror=null;this.src='/collections/placeholder.jpeg'">
+                        onerror="this.onerror=null;this.src='/collections/images/placeholders/premium-placeholder.jpg'">
                     ${product.isOnSale ? '<span class="sale-badge">SALE</span>' : ''}
                     ${product.isNew ? '<span class="new-badge">NEW</span>' : ''}
                 </div>
@@ -295,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="product-size" data-size="${product.size.toUpperCase()}">${product.size.toUpperCase()}</span>
                     </div>
                     <a href="/products/products.html?id=${product.id}" class="shop-now-button">View Details</a>
-                    <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+                    <button class="add-to-cart" data-id="${product.id}">Shop Now</button>
                 </div>
             `;
             collectionsGrid.appendChild(productCard);

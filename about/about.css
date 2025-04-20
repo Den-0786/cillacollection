@@ -33,20 +33,14 @@
     --border-radius-lg: 8px;
   }
 
-
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
     line-height: 1.6;
     color: #333;
     background-color: #f9f9f9;
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
 a {
@@ -66,7 +60,7 @@ ul {
 
 .brand-logo span {
     color: #e8b5c8;
-  }
+}
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -219,6 +213,7 @@ ul {
 
 .about-hero p {
     font-size: 18px;
+    line-height: 1.6;
 }
 
 /* About Content Section */
@@ -226,13 +221,21 @@ ul {
     max-width: 1200px;
     margin: 50px auto;
     padding: 0 20px;
+    
+}
+.about-main{
+    margin-top: 0;
     position: relative;
 }
 
 .about-story, .about-philosophy, .about-why, .about-cta {
     margin-bottom: 50px;
 }
-
+.about-story p{
+    position: relative;
+    width: 60%;
+    left: 15rem;
+}
 .about-content h2 {
     font-size: 32px;
     margin-bottom: 30px;
@@ -243,6 +246,8 @@ ul {
     margin-bottom: 20px;
     font-size: 16px;
     line-height: 1.8;
+    position: relative;
+    
 }
 
 .philosophy-grid {
@@ -325,18 +330,18 @@ ul {
     color: #D10047
 }
 .social-links a {
-  color: #D10047; 
-  background-color: rgba(255,255,255,0.7);
-  width: 10rem;
-  height: 10rem;
-  border-radius:50%;
+    color: #D10047; 
+    background-color: rgba(255,255,255,0.7);
+    width: 10rem;
+    height: 10rem;
+    border-radius:50%;
 }
 .social-links a:hover {
-  color: white;
-  background-color: #D10047;
+    color: white;
+    background-color: #D10047;
 }
 .payment-methods i {
-  color: #0066CC;
+    color: #0066CC;
 }
 .payment-methods .fa-cc-mastercard { color: #EB001B; } 
 .payment-methods .fa-cc-amex { color: #016FD0; } 
@@ -344,12 +349,12 @@ ul {
 .payment-methods .fa-cc-apple-pay { color: #000; } 
 .payment-methods .fa-cc-discover { color: #FF6000; }
 .footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: var(--space-lg);
-  flex-wrap: wrap;
-  gap: var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-md);
 }
 .links-column a:hover,
 .legal-links a:hover {
